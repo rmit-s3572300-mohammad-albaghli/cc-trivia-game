@@ -1,0 +1,22 @@
+<h1 class="mt-4"><%= name %>'s game session</h1>
+<h2 class="mt-4"><%= name %>'s winrate: <%= winrate %>%</h2>
+<div class="card card-body">
+<h1 class="text-center mb-3"><% if(game_type == "boolean") { %> True or False: <% } %><%= question %></h1>
+<form action="/game/result" method="post">
+<div class="text-center">
+    <div class="btn-group-vertical justify-content-center btn-block">
+        <input type="hidden" id="question" name="question" value="<%= question %>">
+        <input type="hidden" id="question" name="player_win" value="<%= player_win %>">
+        <input type="hidden" id="question" name="player_lose" value="<%= player_lose %>">
+        <% game_choices.forEach(function(choice) { %>
+            <button type="submit" name="choice" value="<%= choice %>" class="btn btn-info btn-block"><%= choice %></button>
+            <br>
+        <% }); %>
+    </div>
+</div>
+</form>
+<h2 class="lead mb-3">Category: <%= category %></h2>
+<h2 class="lead mb-3">Difficulty: <%= difficulty %></h2>
+</div>
+<br>
+<a href="/dashboard" class="btn btn-success">Quit Session</a>

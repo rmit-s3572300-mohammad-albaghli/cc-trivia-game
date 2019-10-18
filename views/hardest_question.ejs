@@ -1,0 +1,26 @@
+<a href="/dashboard" class="btn btn-success">Home</a>
+<a href="/leaderboard_winrate" class="btn btn-primary">Leaderboard (By Win Rate)</a>
+<a href="/leaderboard_wincount" class="btn btn-secondary">Leaderboard (By Win Count)</a>
+<h1 class="mt-2">Hardest Questions (Sorted by Loses)</h1>
+<table class="table">
+    <tr>
+        <th>Rank</th>
+        <th>Question</th>
+        <th>Category</th>
+        <th>Difficulty (by Author)</th>
+        <th>Wins</th>
+        <th>Loses</th>
+        <th>Correct Percentage</th>
+    </tr>
+    <% for(var i=0; i< question_rows.length; i++) { %>
+    <tr>
+        <td><%= i+1 %></td>
+        <td><%= question_rows[i].question %></td>
+        <td><%= question_rows[i].category %></td>
+        <td><%= question_rows[i].difficulty %></td>
+        <td><%= question_rows[i].win %></td>
+        <td><%= question_rows[i].lose %></td>
+        <td><%= ((question_rows[i].win/(question_rows[i].win+question_rows[i].lose))*100).toFixed(2) %>%</td>
+    </tr>
+    <% } %>
+</table>

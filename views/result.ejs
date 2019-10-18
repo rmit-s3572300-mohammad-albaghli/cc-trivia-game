@@ -1,0 +1,18 @@
+<h1 class="mt-4"><%= name %>'s game session</h1>
+<div class="card card-body">
+<h1 class="text-center mb-3"><%= question %></h1>
+<% if(answer_status == 'You answer is correct!'){ %> 
+    <a href="/game" class="btn btn-success"><%= answer_status %></a>
+<% } %>
+<% if(answer_status != 'You answer is correct!'){ %> 
+    <a href="/game" class="btn btn-warning"><%= answer_status %></a>
+<% } %>
+<br>
+<h2 class="lead mb-3">The correct answer is: <%= correct_answer %></h2>
+<h2 class="lead mb-3">Your Answer: <%= answer %></h2>
+<h2 class="lead mb-3">Category: <%= category %></h2>
+<h2 class="lead mb-3">Difficulty: <%= difficulty %></h2>
+</div>
+<br>
+<a href="/game" class="btn btn-info">Next Question</a>
+<a href="/dashboard" class="btn btn-secondary">Quit Session</a>

@@ -1,0 +1,22 @@
+<a href="/dashboard" class="btn btn-success">Home</a>
+<a href="/leaderboard_wincount" class="btn btn-primary">Leaderboard (By Win Count)</a>
+<a href="/hardest_question" class="btn btn-secondary">Hardest Questions</a>
+<h1 class="mt-2">Leaderboard (by Win Rate)</h1>
+<table class="table">
+    <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Wins</th>
+        <th>Loses</th>
+        <th>Win Rate</th>
+    </tr>
+    <% for(var i=0; i< player_rows.length; i++) { %>
+    <tr>
+        <td><%= i+1 %></td>
+        <td><%= player_rows[i].name %></td>
+        <td><%= player_rows[i].win %></td>
+        <td><%= player_rows[i].lose %></td>
+        <td><%= ((player_rows[i].win/(player_rows[i].win+player_rows[i].lose))*100).toFixed(2) %>%</td>
+    </tr>
+    <% } %>
+</table>
