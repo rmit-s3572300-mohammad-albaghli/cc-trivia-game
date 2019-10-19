@@ -71,7 +71,7 @@ router.post('/register', async function(req, res) {
                                 projectId: projectID,
                                 credentials: serviceAccount
                             });
-                            const insert_player = `INSERT INTO ${player_table_name} (name, email, win, lose)
+                            const insert_player = `INSERT INTO \`${player_table_name}\` (name, email, win, lose)
                             VALUES ('${name}', '${email}', 0, 0);` 
                             await bigquery.createQueryJob(insert_player);
                             console.log("Inserted new player_row into BigQuery");
